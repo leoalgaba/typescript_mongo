@@ -1,4 +1,8 @@
 import express, { Application } from 'express'
+import morgan from 'morgan'
+import cors from 'cors'
+
+import route from './routes/'
 
 class Server {
     app: Application
@@ -7,6 +11,19 @@ class Server {
     constructor() {
         this.app = express()
         this.port = process.env.PORT || '8000'
+        this.middlewares()
+        this.routes()
+    }
+
+    middlewares() {
+        this.app.use(cors())
+        this.app.use(morgan('dev'))
+        this.app.use(express.urlencoded({extended: false}))
+        this.app.use(express.json())
+    }
+
+    routes() {
+        this.app.use("/api", route)
     }
 
     start() {
