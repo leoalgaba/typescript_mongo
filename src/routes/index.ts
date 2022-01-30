@@ -1,20 +1,21 @@
-import { Router, Request, Response } from "express"
+import { Router } from "express"
+import { getTareas, postTareas, getTarea, delTarea, putTarea } from '../controllers'
+
 const router = Router()
 
-router.get('/', (req: Request, res: Response) => {
-    res.send('obteniendo tareas')
-})
-router.post('/', (req: Request, res: Response) => {
-    res.send('creando tareas')
-})
-router.get('/:id', (req: Request, res: Response) => {
-    res.send('obteniendo una sola tarea')
-})
-router.delete('/:id', (req: Request, res: Response) => {
-    res.send('borrando una tarea')
-})
-router.put('/:id', (req: Request, res: Response) =>{
-    res.send('actualizando una tarea')
-})
+// obteniendo tareas
+router.get('/', getTareas)
+
+// creando tareas
+router.post('/', postTareas)
+
+// obteniendo una sola tarea
+router.get('/:id', getTarea)
+
+// borrando una tarea
+router.delete('/:id', delTarea)
+
+// actualizando una tarea
+router.put('/:id', putTarea)
 
 export default router
