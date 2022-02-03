@@ -1,6 +1,7 @@
 import express, { Application } from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
+import chalk from 'chalk'
 
 import route from './routes/'
 
@@ -28,7 +29,7 @@ class Server {
 
     start() {
         this.app.listen(this.port, () => {
-            console.log(`Servidor corriendo en el puerto: ${this.port} ⚡`)
+            console.log(`\nServidor corriendo en el puerto: ${ chalk.yellow (this.port) } ⚡\n`)
 })
     }
 }
