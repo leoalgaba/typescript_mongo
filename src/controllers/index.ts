@@ -1,27 +1,38 @@
 import { Request, Response } from 'express'
-import Tarea from '../models/tarea'
+
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
 
 export const getTareas = async (req: Request, res: Response) => {
-    const tareas = await Tarea.find()
-    res.send(tareas)
+    // obteniendo tareas
+    const resultado = await prisma.post.findMany()
+    res.json(resultado)
+    console.log(resultado)
 }
 export const postTareas = async (req: Request, res: Response) => {
-    const tarea = new Tarea(req.body)
-    await tarea.save()
-    res.send(tarea)
+    // creando tareas
+    const { Titulo, Descripcion } = req.body
+    const titulo = Titulo.trim()
+    const descripcion = Descripcion.trim()
+    const resultado = await prisma.post.create({
+    data: { titulo, descripcion}
+    })
+    res.json(resultado)
 }
 export const getTarea = async (req: Request, res: Response) => {
-    const tarea = await Tarea.findById(req.params.id)
-    res.send(tarea)
+    // obteniendo una sola tarea
+    const { id } = req.params
+    const resultado = await prisma.post.findUnique({
+        where: { id },
+    })
+    res.send(resultado)
 }
 export const delTarea = async (req: Request, res: Response) => {
-    const { id } = req.params
-    const tarea = await Tarea.findByIdAndDelete(id);
-    res.send(tarea)
+
+    res.send('borrar tarea')
 }
 export const putTarea = async (req: Request, res: Response) => {
-    const tarea = await Tarea.findByIdAndUpdate(req.params.id, req.body, {
-        new:true
-    })
-    res.send(tarea)
+
+    res.send('actualizar tarea')
 }
