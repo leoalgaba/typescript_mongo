@@ -1,8 +1,7 @@
-# Dependency directories
+# Directorio de dependencia
 node_modules/
-
-# dotenv environment variables file
+# Variables para dotenv
 .env
-
 #  carpeta produccion
 dist
+
