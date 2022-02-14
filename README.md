@@ -21,6 +21,7 @@ Los campos de la base de datos son los siguientes:
 titulo, descripcion, hecho, este último es de tipo boolean.
 
 Las rutas son las siguientes:
+
 GET '/'
 
     '/:id'
