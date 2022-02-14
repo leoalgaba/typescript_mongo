@@ -22,10 +22,15 @@ titulo, descripcion, hecho, este último es de tipo boolean.
 
 Las rutas son las siguientes:
 GET '/'
+
     '/:id'
+    
 POST '/'
+
 PUT '/:id'
+
 DELETE '/:id'
+
 
 Documentacion
 https://www.scribd.com/document/558038952/Crud-Mongodb-Typescript
