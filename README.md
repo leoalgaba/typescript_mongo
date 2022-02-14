@@ -24,7 +24,7 @@ Las rutas son las siguientes:
 
 GET '/'
 
-    '/:id'
+'/:id'
     
 POST '/'
 
