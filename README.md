@@ -22,15 +22,15 @@ titulo, descripcion, hecho, este último es de tipo boolean.
 
 Las rutas son las siguientes:
 
-GET '/'
+GET '/api'
 
-'/:id'
+'/api:id'
     
-POST '/'
+POST '/api'
 
-PUT '/:id'
+PUT '/api:id'
 
-DELETE '/:id'
+DELETE '/api:id'
 
 
 Documentacion
